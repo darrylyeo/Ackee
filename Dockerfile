@@ -1,12 +1,12 @@
 # Start with first build stage
 
-FROM mhart/alpine-node:14 AS build
+FROM node:14-alpine AS build
 WORKDIR /srv/app/
 
 # Add dependencies first so that Docker can use the cache as long as the dependencies stay unchanged
 
 COPY package.json yarn.lock /srv/app/
-RUN yarn install --production --frozen-lockfile
+RUN yarn install --production --frozen-lockfile --network-timeout 120000
 
 # Copy source after the dependency step as it's more likely that the source changes
 
@@ -16,7 +16,7 @@ COPY dist /srv/app/dist
 
 # Start with second build stage
 
-FROM mhart/alpine-node:14
+FROM node:14-alpine
 EXPOSE 3000
 WORKDIR /srv/app/
 

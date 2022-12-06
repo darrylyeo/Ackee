@@ -2,7 +2,7 @@
   publish = "dist"
   command = "yarn build"
   functions = "functions/"
-  environment = { NODE_VERSION = "14.9.0", NODE_ENV = "production" }
+  environment = { NODE_VERSION = "14.19.0", NODE_ENV = "production" }
 
 [[redirects]]
   from = "/api"
@@ -15,3 +15,4 @@
   ACKEE_USERNAME = "ACKEE_USERNAME"
   ACKEE_PASSWORD = "ACKEE_PASSWORD"
   ACKEE_ALLOW_ORIGIN = "ACKEE_ALLOW_ORIGIN"
+  ACKEE_AUTO_ORIGIN = "ACKEE_AUTO_ORIGIN"
